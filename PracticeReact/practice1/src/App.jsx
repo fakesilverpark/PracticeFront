@@ -1,34 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./DarkMode.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [darkmode, setDarkMode] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <div className = {darkmode ? "light container" : "dark container"}>
+        <h1>{darkmode ? "Light💡" : "DARK🌙"}Mode</h1>
+        <p>현재 모드는 {darkmode ? "라이트모드" : "다크모드🌙"} 입니다.</p>
+        <button className='toggle-btn' onClick={()=>setDarkMode(!darkmode)}>Light Change</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
